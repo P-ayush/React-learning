@@ -1,35 +1,19 @@
-/**
- * 
- * <div id="parent">
- *  <div id="child">
- *     <h1>H1</h1>
- *     <h2>H2</h2>
- * </div>
- * 
- * <div id="child2">
- *    <h1>H1</h1>
- *    <h2>H2</h2>
- * </div>
- *  
- * </div>
- * 
- */
-
 const React = require('react');
 const ReactDOM = require('react-dom/client');
 
-const heading = React.createElement('div', { id: "parent" }, [
-    React.createElement('div', { id: "child" }, [
-        React.createElement('h1', {}, 'H1'),
-        React.createElement('h2', {}, 'H2'),
-    ]),
-    React.createElement('div', { id: "child2" }, [
-        React.createElement('h1', {}, 'H1'),
-        React.createElement('h2', {}, 'H2'),
-    ])
-]);
+//React element => object => html element(render)
+const element = React.createElement('h1', {id:"head"}, 'Hello World');
+
+//React component
+const Component = () => {
+    return ( <div>
+        {element}
+        <h1 id="heading">Hello World using JSX</h1>
+        </div>)
+} 
+
+//jsx - html-like syntax or XML-like syntax
+// const jsxElement = <h1 id="heading" className= "heads">Hello World using JSX</h1>;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
-root.render(heading);
-
+root.render(<Component/>);
