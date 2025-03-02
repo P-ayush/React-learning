@@ -15,7 +15,8 @@
  * 
  */
 
-
+const React = require('react');
+const ReactDOM = require('react-dom/client');
 
 const heading = React.createElement('div', { id: "parent" }, [
     React.createElement('div', { id: "child" }, [
