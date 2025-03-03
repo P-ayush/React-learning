@@ -1,3 +1,45 @@
-#heading {
-    color: red;
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+}
+.nav-items ul {
+    gap: 20px;
+    display: flex;
+   padding: 0px 20px;
+   list-style-type: none;
+}
+.logo {
+    width: 100px;
+    height: 100px;
+
+}
+
+img {
+    width: 150px;
+    height: 110px;
+}
+
+.restaurant-cards {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    width: 220px;
+    
+}
+
+.restaurant-cards:hover {
+    border: 2px solid #000;
+}
+
+.restro-items {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    flex-wrap: wrap;
 }
