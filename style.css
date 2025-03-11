@@ -28,7 +28,7 @@ img {
     padding: 20px;
     margin: 5px;
     border: 1px solid #ccc;
-    width: 220px;
+    width: 190px;
     
 }
 
@@ -50,4 +50,16 @@ img {
     background-color: #f1f1f1;
     cursor: pointer;
     margin: 10px;
+}
+
+.shimmer {
+    margin: 10px;
+    width: 220px;
+    height: 420px;
+    background-color: #f0f0f0;
+}
+
+.shimmer-wrapper {
+    display: flex;
+    flex-wrap: wrap;
 }
