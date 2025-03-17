@@ -2,6 +2,7 @@ import RestaurantCards from "./Restaurant-cards";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
     const [listOfRestaurants, setListOfRestaurants] = useState(null);
@@ -16,13 +17,16 @@ const Body = () => {
         setListOfRestaurants(response?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredRestaurants(response?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
+    const onlineStatus = useOnlineStatus();
+    if (onlineStatus === false) return <h1> You are offline</h1>
+
     if (!listOfRestaurants || listOfRestaurants.length === 0) return <Shimmer />;
 
     return (<div className='body'>
         <div className='filter'>
-            <input type='text' className ='search-box' value={searchText} onChange={(event)=>{
+            <input type='text' className='search-box' value={searchText} onChange={(event) => {
                 setSearchText(event.target.value);
-            }}/>
+            }} />
             <button className='filter-btn' onClick={() => {
                 const filteredList = listOfRestaurants.filter((resData) => resData.info.name.toLowerCase().includes(searchText.toLowerCase()))
                 setFilteredRestaurants(filteredList);
@@ -33,7 +37,7 @@ const Body = () => {
             }}>Top rated restaurants</button>
         </div>
         <div className='restro-items'>
-            {filteredRestaurants.map((resData) => <Link key={resData.info.id} to={'/restaurant/'+resData.info.id}><RestaurantCards resData={resData} /></Link>)}
+            {filteredRestaurants.map((resData) => <Link key={resData.info.id} to={'/restaurant/' + resData.info.id}><RestaurantCards resData={resData} /></Link>)}
 
         </div>
     </div>)
